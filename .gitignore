@@ -126,3 +126,8 @@ dmypy.json
 
 # VSCode configuration
 .vscode
+
+# Ignore auto-downloaded OpenVR files
+api
+driver_sample/*.cpp
+driver_sample/*.h
