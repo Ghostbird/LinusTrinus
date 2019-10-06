@@ -9,9 +9,8 @@ class OpenVR:
         self.sock.connect(self.addr)
 
     def callback(self, data):
-        if not 'eulerData' in data:
+        if not 'quaternion' in data:
             return
-        # prepare = data['eulerData'][2], data['eulerData'][0], data['eulerData'][1]
         q = data['quaternion']
         d = 57.29578
         print(q)
