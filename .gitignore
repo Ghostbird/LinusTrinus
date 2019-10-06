@@ -128,6 +128,6 @@ dmypy.json
 .vscode
 
 # Ignore auto-downloaded OpenVR files
-api
-driver_sample/*.cpp
-driver_sample/*.h
+samples/api
+samples/driver_sample/*.cpp
+samples/driver_sample/*.h
