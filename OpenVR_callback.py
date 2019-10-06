@@ -13,7 +13,7 @@ class OpenVR:
             return
         q = data['quaternion']
         d = 57.29578
-        print(q)
+        # print(q)
         packet = struct.pack('4d', q[0]/-d, q[1]/-d, q[2]/d, q[3]/d)
         try:
             self.sock.sendto(packet, self.addr)
