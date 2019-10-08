@@ -36,7 +36,7 @@ make -j4
 
 # Install
 rm -rf ~/$STEAMVR_PATH/drivers/sample
-cp -r ./bin/drivers/sample $STEAMVR_PATH/drivers/sample
+cp -r ./bin/drivers/sample $STEAMVR_PATH/drivers
 mkdir -p $STEAMVR_PATH/drivers/sample/bin/${ARCH_TARGET}
 cp -r ./bin/${ARCH_TARGET} $STEAMVR_PATH/drivers/sample/bin/
 
