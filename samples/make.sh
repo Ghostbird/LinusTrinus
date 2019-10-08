@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# ADAPT TO YOUR SYSTEM CONFIGURATION!
 STEAM_PATH=~/.steam/steam
 STEAMVR_PATH=$STEAM_PATH/steamapps/common/SteamVR
 
@@ -34,10 +35,16 @@ cmake . -DCMAKE_PREFIX_PATH=/opt/Qt/5.6/gcc_64/lib/cmake -DCMAKE_BUILD_TYPE=Rele
 make -j4
 
 # Install
-rm -rf ~/.steam/steam/steamapps/common/SteamVR/drivers/sample
+rm -rf ~/$STEAMVR_PATH/drivers/sample
 cp -r ./bin/drivers/sample $STEAMVR_PATH/drivers/sample
 mkdir -p $STEAMVR_PATH/drivers/sample/bin/${ARCH_TARGET}
-cp -r ./bin/${ARCH_TARGET} $STEAMVR_PATH/drivers/sample/bin/${ARCH_TARGET}
+cp -r ./bin/${ARCH_TARGET} $STEAMVR_PATH/drivers/sample/bin/
+
+# WARNING: This might be wrong on some systems
+# However the vrpathreg.sh script has an incorrect path reference on my system.
+cd ${STEAMVR_PATH}/bin/linux64
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd) ./vrpathreg adddriver "/sample"
+cd -
 
 # Cleanup
 rm CMakeCache.txt cmake_install.cmake Makefile
